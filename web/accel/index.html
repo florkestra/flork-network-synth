@@ -1,0 +1,100 @@
+<!doctype html>
+<html> 
+    <head>
+        <meta charset="UTF-8">
+        <title>Flork Network Accelerometer</title>
+        <style type="text/css">
+            body {
+                font-family: sans-serif;
+            }
+            .main {
+                border: 1px solid black;
+                box-shadow: 10px 10px 5px #888;
+                border-radius: 12px;
+                padding: 20px;
+                background-color: #ddd;
+                margin: 25px;
+                width: 450px;
+                margin-left:auto;
+                margin-right:auto;  
+            }
+        </style>
+
+        <script src="../bower_components/osc.js/dist/osc-browser.min.js"></script>
+        <script src="../bower_components/flocking/dist/flocking-all.min.js"></script>
+        <script src="../shared/osc-node-component.js"></script>
+        <script src="accel.js"></script>
+
+    </head>
+    <body>
+        <div class="main">
+            <table>
+                <tr>
+                    <td>Event Supported</td><td id="dmEvent"></td>
+                </tr>
+                <tr>
+                    <td>acceleration</td><td id="moAccel"></td>
+                </tr>
+                <tr>
+                    <td>accelerationIncludingGravity</td><td id="moAccelGrav"></td>
+                </tr>
+                <tr>
+                    <td>rotationRate</td><td id="moRotation"></td>
+                </tr>
+                <tr>
+                    <td>interval</td><td id="moInterval"></td>
+                </tr>
+            </table>
+        </div>
+
+        <script type="text/javascript">
+
+            init();
+
+
+            function init() {
+                if ((window.DeviceMotionEvent) || ('listenForDeviceMovement' in window)) {
+                    window.addEventListener('devicemotion', deviceMotionHandler, false);
+                } else {
+                    document.getElementById("dmEvent").innerHTML = "Not supported on your device or browser.  Sorry."
+                }
+            }
+
+            function deviceMotionHandler(eventData) {
+                var info, xyz = "[X, Y, Z]";
+
+                // Grab the acceleration including gravity from the results
+                var acceleration = eventData.acceleration;
+                info = xyz.replace("X", round(acceleration.x));
+                info = info.replace("Y", round(acceleration.y));
+                info = info.replace("Z", round(acceleration.z));
+                document.getElementById("moAccel").innerHTML = info;
+                
+
+                // Grab the acceleration including gravity from the results
+                acceleration = eventData.accelerationIncludingGravity;
+                info = xyz.replace("X", round(acceleration.x));
+                info = info.replace("Y", round(acceleration.y));
+                info = info.replace("Z", round(acceleration.z));
+                document.getElementById("moAccelGrav").innerHTML = info;
+
+                // Grab the acceleration including gravity from the results
+                var rotation = eventData.rotationRate;
+                info = xyz.replace("X", round(rotation.alpha));
+                info = info.replace("Y", round(rotation.beta));
+                info = info.replace("Z", round(rotation.gamma));
+                document.getElementById("moRotation").innerHTML = info;
+
+                info = eventData.interval;
+                document.getElementById("moInterval").innerHTML = info;
+            }
+
+            function round(val) {
+                var amt = 10;
+                return Math.round(val * amt) /  amt;
+            }
+
+        </script>
+
+    </body>
+</html>
