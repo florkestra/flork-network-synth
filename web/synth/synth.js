@@ -5,7 +5,7 @@
 
     var ork = fluid.registerNamespace("ork");
 
-    fluid.defaults("ork.eigthSynth", {
+    fluid.defaults("ork.eightSynth", {
         gradeNames: ["flock.synth", "autoInit"],
 
         synthDef: [
@@ -16,6 +16,7 @@
                     ugen: "flock.ugen.triOsc",
                     freq: 0.5,
                     mul: {
+                        id: "ampTriangle1", // Lucas, maybe you can come up with a better name?
                         ugen: "flock.ugen.triOsc",
                         freq: 3.0,
                         mul: {
@@ -34,6 +35,7 @@
                     ugen: "flock.ugen.triOsc",
                     freq: 0.5,
                     mul: {
+                        id: "ampTriangle2",
                         ugen: "flock.ugen.triOsc",
                         freq: 3.0,
                         mul: {

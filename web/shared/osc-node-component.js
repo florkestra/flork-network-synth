@@ -8,7 +8,7 @@
     fluid.defaults("ork.networkSynth.oscNode", {
         gradeNames: ["fluid.eventedComponent", "autoInit"],
 
-        serverURL: "ws://localhost:8081",
+        serverURL: "ws://192.168.1.46:8081",
         nodeType: "synth",
 
         members: {

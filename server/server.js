@@ -39,7 +39,9 @@ wss.on("connection", function (socket) {
 
         // Forward the message on the synth if it's ready.
         if (state.synthSocket) {
-            state.synthSocket.sendRaw(data);
+            state.synthSocket.send(data, {
+                binary: true
+            });
         }
     });
 });
