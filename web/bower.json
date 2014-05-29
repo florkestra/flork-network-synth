@@ -1,0 +1,9 @@
+{
+    "name": "flork-network-synth",
+    "version": "1.0.0",
+    "ignore": [],
+    "dependencies": {
+        "osc.js": "git://github.com/colinbdclark/osc.js.git",
+        "flocking": "git://github.com/colinbdclark/Flocking.git"
+    }
+}
