@@ -19,6 +19,26 @@
                 path: "ampTriangle2.freq",
                 mul: 6,
                 add: 0
+            },
+
+            "/knob/0": {
+                path: "carrier1.freq",
+                mul: 20
+            },
+
+            "/knob/1": {
+                path: "carrier2.freq",
+                mul: 20
+            },
+
+            "/knob/2": {
+                path: "carrier3.freq",
+                mul: 20
+            },
+
+            "/knob/3": {
+                path: "carrier1.freq",
+                mul: 20
             }
         },
 

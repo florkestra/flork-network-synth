@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Flork Network Synth Knobs</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,
+            initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, minimal-ui" />
+
+        <link rel="stylesheet" type="text/css" href="../bower_components/normalize-css/normalize.css"></link>
+        <link rel="stylesheet" type="text/css" href="third-party/p2.css"></link>
+
+        <style type="text/css">
+            html, body {
+                height: 100%;
+                width: 100%;
+                overflow: hidden;
+            }
+        </style>
+
+        <script src="../bower_components/osc.js/dist/osc-browser.min.js"></script>
+        <script src="../bower_components/flocking/dist/flocking-all.min.js"></script>
+        <script src="../shared/osc-node-component.js"></script>
+        <script src="third-party/knob.js"></script>
+        <script src="third-party/p2.js"></script>
+        <script src="knobs.js"></script>
+    </head>
+
+    <body>
+        <div id="panel">
+            <input id="knob0" class="preset2" type="range" min="0" max="100" data-width="100" data-height="100" data-angleOffset="220" data-angleRange="280" value="50">
+            <input id="knob1" class="preset2" type="range" min="0" max="100" data-width="100" data-height="100" data-angleOffset="220" data-angleRange="280" value="50">
+            <input id="knob2" class="preset2" type="range" min="0" max="100" data-width="100" data-height="100" data-angleOffset="220" data-angleRange="280" value="50">
+            <input id="knob3" class="preset2" type="range" min="0" max="100" data-width="100" data-height="100" data-angleOffset="220" data-angleRange="280" value="50">
+        </div>
+        <script>
+            ork.networkSynth.knobs("#panel");
+        </script>
+    </body>
+</html>

@@ -10,6 +10,7 @@
 
         synthDef: [
             {
+                id: "carrier1",
                 ugen: "flock.ugen.sinOsc",
                 freq: globalFreq * 8,
                 mul: {
@@ -29,6 +30,7 @@
                 }
             },
             {
+                id: "carrier2",
                 ugen: "flock.ugen.sinOsc",
                 freq: (globalFreq + 54.81) * 8,
                 mul: {
@@ -47,6 +49,7 @@
                 }
             },
             {
+                id: "carrier3",
                 ugen: "flock.ugen.triOsc",
                 freq: globalFreq * 4,
                 mul: {
@@ -64,6 +67,7 @@
                 }
             },
             {
+                id: "carrier4",
                 ugen: "flock.ugen.triOsc",
                 freq: (globalFreq + 54.81) * 4,
                 mul: {
