@@ -32,7 +32,7 @@
         },
 
         invokers: {
-            sendMouseCoordinates: {
+            sendValue: {
                 funcName: "ork.networkSynth.sendMouseCoordinates",
                 args: [
                     "{arguments}.0",
@@ -48,12 +48,12 @@
                 {
                     "this": "{that}.container",
                     method: "mousemove",
-                    args: ["{that}.sendMouseCoordinates"]
+                    args: ["{that}.sendValue"]
                 },
                 {
                     "this": "{that}.container",
                     method: "on",
-                    args: ["touchmove", "{that}.sendMouseCoordinates"]
+                    args: ["touchmove", "{that}.sendValue"]
                 }
             ]
         }
