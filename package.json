@@ -1,0 +1,33 @@
+{
+    "name": "flork-network-synth",
+    "main": "server/server.js",
+    "version": "1.0.0",
+    "description": "a networked synth that can be controlled by different clients using osc.js and Web Sockets.",
+    "author": "The Florkestra",
+    "homepage": "http://flockingjs.org/",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/florkestra/flork-network-synth.git"
+    },
+    "bugs": "https://github.com/florkestra/flork-network-synth/issues",
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "http://opensource.org/licenses/MIT"
+        }
+    ],
+    "keywords": [
+        "Open Sound Control",
+        "Flocking"
+    ],
+    "readmeFilename": "README.md",
+    "devDependencies": {},
+    "dependencies": {
+        "osc": "git://github.com/colinbdclark/osc.js.git",
+        "express": ">=4.3.1",
+        "ws": ">=0.4.31"
+    },
+    "engines": {
+        "node": "0.10.x"
+    }
+}

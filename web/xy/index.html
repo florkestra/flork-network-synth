@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Flork Network Synth xy Controller</title>
+        <meta charset="UTF-8" />
+
+        <style>
+            body: {
+                bgcolor: #aaa;
+            }
+        </style>
+
+        <script src="../bower_components/osc.js/dist/osc-browser.min.js"></script>
+        <script src="../bower_components/flocking/dist/flocking-all.min.js"></script>
+        <script src="../shared/osc-node-component.js"></script>
+        <script src="xy.js"></script>
+    </head>
+
+    <body>
+        <script>
+            ork.networkSynth.xy("body");
+        </script>
+    </body>
+</html>

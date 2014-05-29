@@ -1,4 +1,6 @@
 (function () {
+    "user strict";
+
     var globalFreq = 110;
 
     var ork = fluid.registerNamespace("ork");

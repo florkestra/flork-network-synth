@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Flork Network Synth</title>
+        <meta charset="UTF-8" />
+
+        <script src="../bower_components/osc.js/dist/osc-browser.min.js"></script>
+        <script src="../bower_components/flocking/dist/flocking-all.min.js"></script>
+        <script src="synth.js"></script>
+        <script src="../shared/osc-node-component.js"></script>
+        <script src="synth-app.js"></script>
+
+    </head>
+
+    <body>
+        <h1>Flork Network Synth</h1>
+
+        <div id="messageArea">
+            <pre id="message"></pre>
+        </div>
+
+        <script>
+            ork.networkSynth.app("#messageArea");
+        </script>
+    </body>
+</html>
