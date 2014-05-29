@@ -56,6 +56,7 @@
                     ugen: "flock.ugen.triOsc",
                     freq: 0.5,
                     mul: {
+                        id: "ampTriangle3",
                         ugen: "flock.ugen.triOsc",
                         freq: 3.0,
                         mul: {
@@ -74,6 +75,7 @@
                     ugen: "flock.ugen.triOsc",
                     freq: 0.5,
                     mul: {
+                        id: "ampTriangle4",
                         ugen: "flock.ugen.triOsc",
                         freq: 3.0,
                         mul: {
@@ -85,12 +87,14 @@
                 }
             },
             {
+                id: "carrier5",
                 ugen: "flock.ugen.lfPulse",
                 freq: globalFreq * 2,
                 mul: {
                     ugen: "flock.ugen.triOsc",
                     freq: 0.5,
                     mul: {
+                        id: "ampTriangle5",
                         ugen: "flock.ugen.triOsc",
                         freq: 3.0,
                         mul: {
@@ -102,13 +106,14 @@
                 }
             },
             {
-
+                id: "carrier6",
                 ugen: "flock.ugen.lfPulse",
                 freq: (globalFreq + 54.81) * 2,
                 mul: {
                     ugen: "flock.ugen.triOsc",
                     freq: 0.5,
                     mul: {
+                        id: "ampTriangle6",
                         ugen: "flock.ugen.triOsc",
                         freq: 3.0,
                         mul: {
@@ -120,12 +125,14 @@
                 }
             },
             {
+                id: "carrier7",
                 ugen: "flock.ugen.lfSaw",
                 freq: globalFreq,
                 mul: {
                     ugen: "flock.ugen.triOsc",
                     freq: 0.5,
                     mul: {
+                        id: "ampTriangle7",
                         ugen: "flock.ugen.triOsc",
                         freq: 3.0,
                         mul: {
@@ -137,9 +144,11 @@
                 }
             },
             {
+                id: "carrier8",
                 ugen: "flock.ugen.lfSaw",
                 freq: globalFreq + 54.81,
                 mul: {
+                    id: "ampTriangle8",
                     ugen: "flock.ugen.triOsc",
                     freq: 0.5,
                     mul: {

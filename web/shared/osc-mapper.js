@@ -21,6 +21,21 @@
                 add: 0
             },
 
+            "/orientation/gamma": {
+                path: "ampTriangle3.freq",
+                mul: 100
+            },
+
+            "/orientation/alpha": {
+                path: "ampTriangle4.freq",
+                mul: 100
+            },
+
+            "/orientation/beta": {
+                path: "ampTriangle5.freq",
+                mul: 100
+            },
+
             "/knob/0": {
                 path: "carrier1.freq",
                 mul: 20
@@ -37,8 +52,23 @@
             },
 
             "/knob/3": {
-                path: "carrier1.freq",
+                path: "carrier4.freq",
                 mul: 20
+            },
+
+            "/accelerometer/x": {
+                path: "carrier5.freq",
+                mul: 100
+            },
+
+            "/accelerometer/y": {
+                path: "carrier6.freq",
+                mul: 100
+            },
+
+            "/accelerometer/z": {
+                path: "carrier7.freq",
+                mul: 100
             }
         },
 

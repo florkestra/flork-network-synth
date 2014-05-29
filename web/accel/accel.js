@@ -8,11 +8,6 @@
     fluid.defaults("ork.networkSynth.accel", {
         gradeNames: ["fluid.viewComponent", "autoInit"],
 
-        oscMessage: {
-            address: "/accel/0",
-            args: [0]
-        },
-
         components: {
             oscNode: {
                 type: "ork.networkSynth.oscNode",
@@ -20,8 +15,9 @@
                     nodeType: "controller",
                     listeners: {
                         onOpen: {
-                            funcName: "ork.networkSynth.accel.create",
-                            args: ["{accel}.dom.allAccel", "{accel}.sendValue"]
+                            "this": "window",
+                            method: "addEventListener",
+                            args: ["devicemotion", "{accel}.sendValue", false]
                         }
                     }
                 }
@@ -30,31 +26,50 @@
 
         invokers: {
             sendValue: {
-                funcName: "ork.networkSynth.accel.sendValue",
+                funcName: "ork.networkSynth.accel.sendValues",
                 args: [
                     "{arguments}.0",
-                    "{arguments}.1",
-                    "{that}.oscNode.port",
-                    "{that}.options.oscMessage"
+                    "{that}.oscNode.port"
                 ]
             }
-        },
-
-        selectors: {
-            accel0: "#moAccel",
-            accel1: "#moAccelGrav"
-            accel2: "#moRotation",
-            allAccel: "td"
         }
     });
 
+    ork.networkSynth.accel.sendValues = function (event, oscPort, oscMessage) {
+        var accel = {
+            x: event.accelerationIncludingGravity.x,
+            y: event.accelerationIncludingGravity.y,
+            z: event.accelerationIncludingGravity.z
+        };
 
-    ork.networkSynth.accel.sendValue = function (knobId, val, oscPort, oscMessage) {
-        var knobNum = knobId[knobId.length - 1];
-        oscMessage.address = "/knob/" + knobNum;
-        oscMessage.args[0] = val;
+        var accelBundle = ork.networkSynth.accel.bundleForValues("/accelerometer", accel);
+        oscPort.send(accelBundle);
 
-        oscPort.send(oscMessage);
+        var orient = {
+            alpha: event.rotationRate.alpha,
+            beta: event.rotationRate.beta,
+            gamma: event.rotationRate.gamm
+        };
+
+        var orientBundle = ork.networkSynth.accel.bundleForValues("/orientation", accel);
+        oscPort.send(orientBundle);
+    };
+
+    ork.networkSynth.accel.bundleForValues = function (addressPrefix, obj) {
+        var bundle = {
+            timeTag: osc.timeTag(0),
+            packets: []
+        };
+
+        for (var prop in obj) {
+            var val = obj[prop];
+            bundle.packets.push({
+                address: addressPrefix + "/" + prop,
+                args: [val]
+            });
+        }
+
+        return bundle;
     };
 
 }());
