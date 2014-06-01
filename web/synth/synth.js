@@ -17,7 +17,7 @@
                     ugen: "flock.ugen.triOsc",
                     freq: 0.5,
                     mul: {
-                        id: "ampTriangle1", // Lucas, maybe you can come up with a better name?
+                        id: "ampTriangle1",
                         ugen: "flock.ugen.triOsc",
                         freq: 3.0,
                         mul: {

@@ -4,7 +4,7 @@ var osc = require("osc"),
     WebSocket = require("ws"),
     config = require(__dirname + "/config.json");
 
-var appResources = __dirname + "/../web",
+var appResources = config.webRoot.indexOf("/") === 0 ? config.webRoot : __dirname + "/" + config.webRoot,
     app = express(),
     server = app.listen(config.port),
     wss = new WebSocket.Server({
@@ -12,7 +12,7 @@ var appResources = __dirname + "/../web",
     });
 
 app.use("/", express.static(appResources));
-console.log("Server listening on port " + config.port);
+console.log((new Date).toString(), "Server listening on port " + config.port);
 
 var state = {
     synthSocket: null,
@@ -21,10 +21,10 @@ var state = {
 
 var handleNewOSCPort = function (socket, msg, serverState) {
     if (msg === "synth") {
-        console.log("A synth was registered.");
+        console.log((new Date).toString(), "A synth was registered.");
         serverState.synthSocket = socket;
     } else {
-        console.log("A controller was registered.");
+        console.log((new Date).toString(), "A controller was registered.");
         serverState.controllerSockets.push(socket);
     }
 };
@@ -37,7 +37,7 @@ wss.on("connection", function (socket) {
             return;
         }
 
-        // Forward the message on the synth if it's ready.
+        // Forward the message on to the synth if it's ready.
         if (state.synthSocket) {
             state.synthSocket.send(data, {
                 binary: true

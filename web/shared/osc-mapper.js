@@ -11,13 +11,13 @@
         oscInputs: {
             "/x": {
                 path: "ampTriangle1.freq",
-                mul: 10,
+                mul: 100,
                 add: 0
             },
 
             "/y": {
                 path: "ampTriangle2.freq",
-                mul: 6,
+                mul: 60,
                 add: 0
             },
 
